@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- <link
+      rel="stylesheet"
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+    /> -->
+    <link
+      href="https://fonts.googleapis.com/css?family=JetBrains Mono"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="img/logo-only.ico" />
+  </head>
+
+  <body>
+    <div class="box">
+      <nav class="navbar">
+        <a class="navbar-brand" href="#">
+          <img src="./img/logo-only.png" width="100%" height="60px" alt="" />
+        </a>
+      </nav>
+      <div class="code-editor">
+        <div class="editor" id="editor"></div>
+
+        <div class="IO-area">
+          <div class="input">
+            <div class="select-language">
+              <select
+                class="selectBox language"
+                id="language"
+                name="language"
+                onchange="changeLanguage()"
+              >
+                SELECT LANGUAGE:
+                <option selected>Language</option>
+                &nbsp;&nbsp;
+                <option value="c">C</option>
+                <option value="cpp">C++</option>
+                <option value="cs">C#</option>
+                <option value="java">Java</option>
+                <option value="py">Python</option>
+                <option value="go">GOlang</option>
+                <option value="js">JavaScript</option>
+              </select>
+              <select
+                class="selectBox changeTheme"
+                id="changeTheme"
+                name="changeTheme"
+                onchange="changeTheme()"
+              >
+                SELECT THEME: &nbsp;&nbsp;
+                <option selected>Themes</option>
+                <option value="ambiance">Ambiance</option>
+                <option value="chaos">Chaos</option>
+                <option value="chrome">Chrome</option>
+                <option value="cobalt">Cobalt</option>
+                <option value="dracula">Dracula</option>
+                <option value="eclipse">Eclipse</option>
+                <option value="github">GitHub</option>
+                <option value="twilight">Twilight</option>
+                <option value="xcode">Xcode</option>
+                <option value="sql">SQL Server</option>
+              </select>
+              <select
+                class="selectBox fontSize"
+                id="fontSize"
+                name="fontSize"
+                onchange="changeFontSize()"
+              >
+                SELECT FONTSIZE: &nbsp;&nbsp;
+                <option selected>Font Size</option>
+                <option value="9">9px</option>
+                <option value="10">10px</option>
+                <option value="15">15px</option>
+                <option value="18">18px</option>
+                <option value="22">22px</option>
+                <option value="25">25px</option>
+              </select>
+            </div>
+          </div>
+          <div class="output">
+            <div class="head_button">
+              <div class="output_heading">
+                <h2>Output</h2>
+              </div>
+              <div class="buttons-box">
+                <div class="button-container">
+                  <button id="run-button">Run</button>
+                </div>
+                <div class="button-container">
+                  <button id="clear-button">Clear</button>
+                </div>
+              </div>
+            </div>
+
+            <textarea id="output_box" spellcheck="false"></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.5.3/ace.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
