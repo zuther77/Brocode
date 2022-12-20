@@ -72,7 +72,6 @@ const inputTextAreaContent = document.getElementById('input')
 function getall() {
   codeData = editor.getSession().getValue()
   langData = lang.options[lang.selectedIndex].value
-  console.log(codeData);
 }
 
 
@@ -110,6 +109,37 @@ function getall() {
 
 // }
 
+
+
+
+
 function executeCode() {
   getall()
+
+  var apigClient = apigClientFactory.newClient();
+
+  var params = {}
+  var body = JSON.stringify({
+    code: codeData,
+    language: langData,
+    input: inputData
+  });
+
+  var additionalParams = {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  };
+
+
+  console.log(body);
+
+  apigClient.codePost(params, body, additionalParams).then(function (result) {
+    console.log('success OK');
+    console.log(result);
+    alert("code send  successfully!");
+  }).catch(function (result) {
+    console.log(result);
+  });
+
 }

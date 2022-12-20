@@ -103,27 +103,19 @@ body {
 
 .button-container {
     display: flex;
-
     background-color: #109010;
-    border-radius: 18px;
     font-size: 15px;
     margin-top: 10px;
-    padding: 5px 30px 5px 30px;
+    border-radius: 18px;
+    padding: 3px;
     float: right;
     margin-right: 2rem ;
 }
 
 
-#run-button{
-    padding-top: 2px;
-    color: #07FF07;
-    border: none;
-    text-align: center;
-    background-color: inherit;
-}
-
-#clear-button {
-    padding-top: 2px;
+#run-button , #clear-button{
+    padding: 3px 20px 5px 20px;
+        border-radius: 18px;
     color: #07FF07;
     border: none;
     text-align: center;
