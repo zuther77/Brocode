@@ -7,14 +7,17 @@ const lineNumbers = document.querySelector('.line-numbers')
 let output_text = document.getElementById('output_box')
 let run_button = document.getElementById('run-button')
 
+
+
 run_button.addEventListener('click', executeCode)
+
 
 
 
 // defaul ace editor settings 
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/cobalt");
-editor.session.setMode("ace/mode/c_cpp");
+editor.session.setMode("ace/mode/python");
 editor.session.setUseWrapMode(true);
 document.getElementById('editor').style.fontSize = '15px';
 
@@ -116,28 +119,35 @@ function getall() {
 function executeCode() {
   getall()
 
+  if (langData === "Language") {
+    console.log(lang.language)
+    return alert(" Choose a PL first")
+  }
+
+
   var apigClient = apigClientFactory.newClient();
 
-  var params = {}
-  var body = JSON.stringify({
-    code: codeData,
-    language: langData,
-    input: inputData
-  });
+  var params = {
+    "language": langData
+  }
+
+  var body = codeData
+
 
   var additionalParams = {
     headers: {
       'Content-Type': 'application/json'
-    }
+    },
   };
 
 
+  console.log(params);
   console.log(body);
 
   apigClient.codePost(params, body, additionalParams).then(function (result) {
     console.log('success OK');
     console.log(result);
-    alert("code send  successfully!");
+    output_text.value = result.data;
   }).catch(function (result) {
     console.log(result);
   });

@@ -53,7 +53,7 @@ apigClientFactory.newClient = function (config) {
 
     
     // extract endpoint and path from url
-    var invokeUrl = 'https://mowjltm969.execute-api.us-east-1.amazonaws.com/Test1';
+    var invokeUrl = 'https://mowjltm969.execute-api.us-east-1.amazonaws.com/test2';
     var endpoint = /(^https?:\/\/[^\/]+)/g.exec(invokeUrl)[1];
     var pathComponent = invokeUrl.substring(endpoint.length);
 
@@ -86,13 +86,13 @@ apigClientFactory.newClient = function (config) {
     apigClient.codePost = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
-        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        apiGateway.core.utils.assertParametersDefined(params, ['language'], ['body']);
         
         var codePostRequest = {
             verb: 'post'.toUpperCase(),
             path: pathComponent + uritemplate('/code').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['language']),
             body: body
         };
         
@@ -116,6 +116,42 @@ apigClientFactory.newClient = function (config) {
         
         
         return apiGatewayClient.makeRequest(codeOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.pushBucketFolderPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['bucket', 'folder'], ['body']);
+        
+        var pushBucketFolderPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/push/{bucket}/{folder}').expand(apiGateway.core.utils.parseParametersToObject(params, ['bucket', 'folder'])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(pushBucketFolderPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.pushBucketFolderOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['bucket', 'folder'], ['body']);
+        
+        var pushBucketFolderOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/push/{bucket}/{folder}').expand(apiGateway.core.utils.parseParametersToObject(params, ['bucket', 'folder'])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(pushBucketFolderOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
     
