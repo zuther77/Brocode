@@ -3,15 +3,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link type="text/css" rel="stylesheet" href="index.css" />
+    <link type="text/css" rel="stylesheet" href="/styles/index.css" />
     <link rel="shortcut icon" href="img/logo-only.ico" />
-    <script src="index.js"></script>
+    <script src="/js/register.js"></script>
+    <script src="/js/amazon-cognito-identity.min.js"></script>
+    <script src="/js/amazon-cognito-auth.min.js"></script>
+    <script src="/js/config.js"></script>
 
 </head>
 <body>
     <div class="main-container">
         <div class="left">
-            <img src="./img/logo-search-grid-1x.png" alt="logo">
+            <img src="/img/logo-search-grid-1x.png" alt="logo">
         </div>
         <div class="right">
             <div class="tagline">
@@ -27,7 +30,7 @@
                         <input type="password" class="form-control" placeholder="Confirm Password" id="confirm-password">
                     </div>
                     <div class="form-group2">
-                        <button type="button"  class="form-button one">SUBMIT</button>
+                        <button type="button"  id="register" class="form-button one" onclick="registerUser()">SUBMIT</button>
                         <button type="button" id="login-button" class="form-button two">LOGIN</button>
                     </div>
                 </form>
@@ -36,7 +39,12 @@
         </div>
         </div>
     </div>
-
+    <script>
+        document.getElementById('login-button').addEventListener('click' , ()=>{
+            window.location.href = './index.html'
+        })
+    </script>
+    
 
 </body>
 </html>
