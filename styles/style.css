@@ -18,6 +18,14 @@ body {
 
 .box{
     background-color: #1A2035;
+
+}
+
+.user-logout{
+    padding-right: 80px;
+    font-family: 'Inter' , sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
 }
 
 .code-editor {
@@ -29,18 +37,18 @@ body {
 
 #editor{
     font-family: 'JetBrains Mono';
+    overflow: hidden;
+    width: auto;
 }
 
 
 .IO-area {
     display: flex;
+    width: auto;
     flex-direction: column;
     background-color: #5c616d;
 }
 
-.editor {
-    overflow: hidden;
-}
 
 
 .navbar{

@@ -69,12 +69,14 @@ clear_button.addEventListener('click', () => {
 
 
 
-var codeData, langData, inputData
 const inputTextAreaContent = document.getElementById('input')
 
+
+var codeData, langData;
 function getall() {
   codeData = editor.getSession().getValue()
   langData = lang.options[lang.selectedIndex].value
+
 }
 
 
@@ -122,6 +124,13 @@ function executeCode() {
   if (langData === "Language") {
     console.log(lang.language)
     return alert(" Choose a PL first")
+  }
+
+  output_text.value = '';
+  console.log(typeof codeData);
+
+  if (!codeData.length) {
+    return alert("No code sent")
   }
 
 
