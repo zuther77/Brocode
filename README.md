@@ -1,8 +1,13 @@
 # BroCode - Cloud Based IDE to quickly prototype code
 Cloud Computing(CS-GY 9223) Final Project
 
+
 ### Description
-Our aim is to create a Cloud Based IDE which will quickly execute your code by providing you compilers for many different languages on the Cloud. This can also be used for individuals who want to save their projects and other important code related questions to the Cloud.
+Our aim is to create a Cloud Based IDE which will quickly execute your code by providing you compilers for many different languages on the Cloud. This can also be used by people who do not want to go through the hastle of setting up environments. 
+
+
+#### PS: Due to free tier limits we had to shut our instances down 
+
 
 ### List of AWS Services
 - Lambda
