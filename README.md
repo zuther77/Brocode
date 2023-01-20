@@ -45,4 +45,4 @@ This is a really helpful feature especially for programmers who are beginners.
 
 
 ### Architecture
-
+![alt text](https://github.com/zuther77/Brocode/blob/master/images/Project_Architecture.jpeg)
