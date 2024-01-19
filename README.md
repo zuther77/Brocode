@@ -1,5 +1,4 @@
 # BroCode - Cloud Based IDE to quickly prototype code
-Cloud Computing(CS-GY 9223) Final Project
 
 
 ### Description
