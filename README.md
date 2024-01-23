@@ -29,7 +29,7 @@ Our aim is to create a Cloud Based IDE which will quickly execute your code by p
 
 - The SQS Event triggers the second Lambda function which calls a Python script on the Amazon EC2 instance via the AWS SSM Agent.
 
-- The script reads the language and accordingly runs the relevant Docker container. The output is saved to the output directory of S3.
+- The script reads the language and accordingly uses bash scripts written specifically to run the relevant Docker container. The output is saved to the output directory of S3.
 
 - A put event in the output directory of S3 triggers the third Lambda function which updates the DynamoDB with the relevant id and the status as “Completed”
 
